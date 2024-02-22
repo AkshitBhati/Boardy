@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button"
+
 const page = () => {
   return (
-    <div>
-      Hey
-    </div>
+    <Button>Click Me</Button>
   )
 }
 
