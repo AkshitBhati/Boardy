@@ -52,7 +52,7 @@ interface BoardCardProps {
           isFavorite={isFavorite}
           title={title}
           authorLabel={authorLabel}
-          createAtLabel={createdAtLabel}
+          createAtLabel={parseInt(createdAtLabel)}
           onClick={() => {}}
           disabled={false}
         />
