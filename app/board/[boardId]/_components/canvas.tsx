@@ -61,9 +61,9 @@ export const Canvas = ({ boardId }: CanvasProps) => {
       width: 100,
       fill: lastUsedColor,
     });
-
+    
     liveLayerIds.push(layerId);
-    liveLayers.set(layerId, layer);
+    liveLayers.set(layerId, Object(layer));
     setMyPresence({ selection: [layerId] }, { addToHistory: true });
     setCanvasState({ mode: CanvasMode.None });
   }, [lastUsedColor]);
@@ -96,13 +96,9 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     const point = pointerEventToCanvasPoint(e, camera)
     
     if (
-        canvasState.mode === CanvasMode.None ||
-        canvasState.mode === CanvasMode.Pressing
+        canvasState.mode === CanvasMode.Inserting 
       ) {
-        // unselectLayers();
-        setCanvasState({
-          mode: CanvasMode.None,
-        });
+        insertLayer(canvasState.layerType, point)
       }   
       else {
         setCanvasState({
