@@ -41,7 +41,7 @@ import { Participants } from "./participants";
 import { LayerPreview } from "./layer-preview";
 import { SelectionBox } from "./selection-box";
 import { SelectionTools } from "./selection-tools";
-import { CursorsPresence } from "./cursors-presence";
+import { CursorsPresence } from "./cusors-presence"; 
 
 const MAX_LAYERS = 100;
 
@@ -94,7 +94,7 @@ export const Canvas = ({
     });
 
     liveLayerIds.push(layerId);
-    liveLayers.set(layerId, layer);
+    liveLayers.set(layerId, Object(layer));
 
     setMyPresence({ selection: [layerId] }, { addToHistory: true });
     setCanvasState({ mode: CanvasMode.None });
@@ -254,7 +254,7 @@ export const Canvas = ({
     }
 
     const bounds = resizeBounds(
-      canvasState.initialBounds,
+      canvasState.InitialBounds,
       canvasState.corner,
       point,
     );
