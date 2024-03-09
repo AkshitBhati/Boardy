@@ -39,7 +39,7 @@ export const SelectionBox = memo(({
         x={0}
         y={0}
         width={bounds.width}
-        height={bounds.hieght}
+        height={bounds.height}
       />
       {isShowingHandles && (
         <>
@@ -113,7 +113,7 @@ export const SelectionBox = memo(({
               transform: `
                 translate(
                   ${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, 
-                  ${bounds.y + bounds.hieght / 2 - HANDLE_WIDTH / 2}px
+                  ${bounds.y + bounds.height / 2 - HANDLE_WIDTH / 2}px
                 )`
             }}
             onPointerDown={(e) => {
@@ -132,7 +132,7 @@ export const SelectionBox = memo(({
               transform: `
                 translate(
                   ${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, 
-                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.hieght}px
+                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px
                 )`
             }}
             onPointerDown={(e) => {
@@ -151,7 +151,7 @@ export const SelectionBox = memo(({
               transform: `
                 translate(
                   ${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px,
-                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.hieght}px
+                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px
                 )`
             }}
             onPointerDown={(e) => {
@@ -170,7 +170,7 @@ export const SelectionBox = memo(({
               transform: `
                 translate(
                   ${bounds.x - HANDLE_WIDTH / 2}px,
-                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.hieght}px
+                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px
                 )`
             }}
             onPointerDown={(e) => {
@@ -189,7 +189,7 @@ export const SelectionBox = memo(({
               transform: `
                 translate(
                   ${bounds.x - HANDLE_WIDTH / 2}px,
-                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.hieght / 2}px
+                  ${bounds.y - HANDLE_WIDTH / 2 + bounds.height / 2}px
                 )`
             }}
             onPointerDown={(e) => {

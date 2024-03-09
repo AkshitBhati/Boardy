@@ -39,7 +39,7 @@ const boundingBox = (layers: Layer[]): XYWH | null => {
     x: left,
     y: top,
     width: right - left,
-    hieght: bottom - top,
+    height: bottom - top,
   };
 };
 

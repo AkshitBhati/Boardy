@@ -7,7 +7,7 @@ import { Hint } from "@/components/hint";
 import { Camera, Color } from "@/types/canvas";
 import { Button } from "@/components/ui/button";
 import { useMutation, useSelf } from "@/liveblocks.config";
-import { useDeleteLayers } from "@/hooks/use-delete-layers";
+import { useDeleteLayers } from "@/hooks/use-delete-layers"; 
 import { useSelectionBounds } from "@/hooks/use-selection-bounds";
 
 import { ColorPicker } from "./color-picker";

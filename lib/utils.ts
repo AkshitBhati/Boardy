@@ -51,7 +51,7 @@ export function resizeBounds(
     x: bounds.x,
     y: bounds.y,
     width: bounds.width,
-    hieght: bounds.hieght,
+    height: bounds.height,
   };
 
   if ((corner & Side.Left) === Side.Left) {
@@ -65,13 +65,13 @@ export function resizeBounds(
   }
 
   if ((corner & Side.Top) === Side.Top) {
-    result.y = Math.min(point.y, bounds.y + bounds.hieght);
-    result.hieght = Math.abs(bounds.y + bounds.hieght - point.y);
+    result.y = Math.min(point.y, bounds.y + bounds.height);
+    result.height = Math.abs(bounds.y + bounds.height - point.y);
   }
 
   if ((corner & Side.Bottom) === Side.Bottom) {
     result.y = Math.min(point.y, bounds.y);
-    result.hieght = Math.abs(point.y - bounds.y);
+    result.height = Math.abs(point.y - bounds.y);
   }
 
   return result;
