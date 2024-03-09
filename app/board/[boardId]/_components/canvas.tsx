@@ -254,7 +254,7 @@ export const Canvas = ({
     }
 
     const bounds = resizeBounds(
-      canvasState.InitialBounds,
+      canvasState.initialBounds,
       canvasState.corner,
       point,
     );
