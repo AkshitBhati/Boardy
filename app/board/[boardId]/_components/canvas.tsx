@@ -70,6 +70,29 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     setCanvasState({ mode: CanvasMode.None });
   }, [lastUsedColor]);
 
+  const trasnlateSelectedLayer = useMutation(({ storage, self }, point:Point) => {
+    if(canvasState.mode !== CanvasMode.Translating){
+      return 
+    }
+    const offset = {
+      x:point.x - canvasState.current.x,
+      y:point.y - canvasState.current.y
+    }
+
+    const liveLayers = storage.get("layers")
+
+    for (const id of self.presence.selection){
+      const layer = liveLayers.get(id)
+
+      if(layer){
+        layer.update({
+          x: layer.get("x") + offset.x,
+          y: layer.get("y") + offset.y
+        })
+      }
+    }
+  }, [])
+
   const resizeSelectedLayer = useMutation((
     { storage, self },
     point: Point,
@@ -113,13 +136,15 @@ export const Canvas = ({ boardId }: CanvasProps) => {
       e.preventDefault();
       const current = pointerEventToCanvasPoint(e, camera);
 
-      if(canvasState.mode === CanvasMode.Resizing){
+      if(canvasState.mode === CanvasMode.Translating){
+        trasnlateSelectedLayer(current)
+      }else if(canvasState.mode === CanvasMode.Resizing){
         resizeSelectedLayer(current)
       }
 
       setMyPresence({ cursor: current });
     },
-    [canvasState, camera, resizeSelectedLayer]
+    [camera, canvasState, resizeSelectedLayer,trasnlateSelectedLayer]
   );
 
   const onPointerLeave = useMutation(({ setMyPresence }) => {
@@ -144,7 +169,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
       }
       history.resume();  
   }, [
-    // setCanvasState,
+    setCanvasState,
     camera,
     canvasState,
     history,
